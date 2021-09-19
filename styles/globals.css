@@ -1,16 +1,77 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 
-a {
-  color: inherit;
-  text-decoration: none;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply overflow-x-hidden;
+  }
 }
 
 * {
+  margin: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Carousel */
+
+.ch .carousel {
+  padding-bottom: 38px !important;
+  margin-bottom: -45px !important;
+}
+
+.ch .slider-wrapper {
+  /* border: 2px solid red; */
+  border-radius: 3px !important;
+}
+
+.ch ul.control-dots {
+  position: absolute !important;
+  /* border: 2px solid lime; */
+  bottom: 0px !important;
+}
+
+.ch ul.control-dots .dot {
+  width: 30px !important;
+  height: 5px !important;
+  background-color: #115e59 !important;
+  opacity: 0.5 !important;
+  border-radius: 3px !important;
+}
+
+@media screen and (max-width: 400px) {
+  .ch ul.control-dots .dot {
+    width: 20px !important;
+    height: 4px !important;
+    border-radius: 2px !important;
+  }
+}
+
+.ch ul.control-dots .dot.selected {
+  background-color: #115e59 !important;
+  opacity: 1 !important;
+}
+
+/* Carousel Kategory Detail Item */
+.cci .thumbs {
+  /* border: 1px solid green !important; */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  /* width: 100px !important; */
+  padding: 0 !important;
+}
+
+@media screen and (max-width: 500px) {
+  .cci .thumbs-wrapper {
+    display: none !important;
+  }
+}
+
+/* Footer */
+.footer-img {
+  transform: rotateY(180deg) !important;
 }
