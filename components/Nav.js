@@ -96,7 +96,7 @@ function Nav() {
           // </div>
         ))}
       </div>
-      <div className={`h-[40px] w-28 bg-gradient-to-l from-white -right-3 top-1 absolute transition duration-200 ease-in ${navBg ? 'from-teal-200' : 'from-white'}`} />
+      <div className={`h-[52px] md:h-[63px] w-28 bg-gradient-to-l from-white -right-3 top-0 absolute transition duration-200 ease-in ${navBg ? 'from-teal-200' : 'from-white'}`} />
     </div>
   );
 }
