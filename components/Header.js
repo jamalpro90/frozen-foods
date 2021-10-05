@@ -1,15 +1,14 @@
+import { getAuth, onAuthStateChanged } from '@firebase/auth';
 import { SearchIcon } from '@heroicons/react/outline';
-import { UserIcon, ShoppingCartIcon } from '@heroicons/react/solid';
+import { ShoppingCartIcon, UserIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { funcHeader, funcLogOut } from '../config/firebase';
-import { getAuth, onAuthStateChanged } from '@firebase/auth';
+import { funcLogOut } from '../config/firebase';
 
 function Header() {
   const auth = getAuth();
   const [user, setUser] = useState({});
   const [name, setName] = useState('');
-  const [ifEmail, setIfEmail] = useState('');
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
