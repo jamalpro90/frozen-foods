@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { EyeIcon, EyeOffIcon } from '@heroicons/react/solid';
 import { useState } from 'react';
-import { funcLoginEmail } from '../config/firebase';
+import { funcLoginEmail, funcLoginGoogle } from '../config/firebase';
 import { useRouter } from 'next/dist/client/router';
 
 function Login() {
@@ -22,6 +22,10 @@ function Login() {
   const handleLoginEmail = (e) => {
     e.preventDefault();
     funcLoginEmail(router, email, password);
+  };
+
+  const handleLoginGoogle = () => {
+    funcLoginGoogle(router);
   };
 
   return (
@@ -66,7 +70,7 @@ function Login() {
             </div>
           </form>
           {/* Button Google */}
-          <button className="bg-gray-200 transition duration-200 hover:bg-gray-50 w-full mt-4 py-1 cursor-pointer flex justify-center items-center rounded shadow-md">
+          <button onClick={handleLoginGoogle} className="bg-gray-200 transition duration-200 hover:bg-gray-50 w-full mt-4 py-1 cursor-pointer flex justify-center items-center rounded shadow-md">
             <Image src="/img/google.svg" alt="google icon" width={18} height={18} /> <span className="ml-2">Continue With Google</span>
           </button>
         </div>

@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, onAuthStateChanged, signOut, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, onAuthStateChanged, signOut, signInWithEmailAndPassword, sendPasswordResetEmail, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAwXQrZeJS2OcVavK6tvGJz-_OfXX9DMTg',
@@ -15,6 +15,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
+const googleProvider = new GoogleAuthProvider();
 
 // Fungsi cek apakah suah login
 export const funcLoginStatus = (router) => {
@@ -43,7 +44,18 @@ export const funcRegister = (router, email, password) => {
     });
 };
 
-// Fungsi Login
+// Fungsi login dengan google
+export const funcLoginGoogle = (router) => {
+  signInWithPopup(auth, googleProvider)
+    .then((result) => {
+      router.push('/');
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
+};
+
+// Fungsi Login dengan email
 export const funcLoginEmail = (router, email, password) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
